@@ -1,10 +1,11 @@
 <template>
   <section class="container">
     <h1>{{title}}</h1>
-    <p>{{$store.state.message}}</p>
+    <p>{{message}}</p>
     <hr>
     <div class="link"
-        v-on:click="doAction">
+        @click="$store.commit('count')"
+        @click.ctrl="$store.commit('reset')">
       <a>
         clicked: {{ $store.state.counter }}
       </a>
@@ -21,11 +22,6 @@ export default {
       message: 'this is message.',
     };
   },
-  methods: {
-    doAction: function(){
-      this.$store.state.counter++;
-    }
-  }
 };
 </script>
 
