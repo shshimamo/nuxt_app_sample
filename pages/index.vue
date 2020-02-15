@@ -4,9 +4,9 @@
     <p>{{$store.state.message}}</p>
     <hr>
     <div class="link"
-        @click.exact="$store.commit('count',1)"
-        @click.shift="$store.commit('count',2)"
-        @click.ctrl="$store.commit('count',3)">
+        @click.exact="$store.commit({type:'count', message:'add 1!', add:1})"
+        @click.shift.exact="$store.commit({type:'count', message:'add 5!', add:5})"
+        @click.ctrl.exact="$store.commit({type:'count', message:'add 10!', add:10})">
       <a @click.stop="$store.commit('reset')">
         clicked: {{ $store.state.counter }}
       </a>
