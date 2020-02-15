@@ -1,12 +1,13 @@
 <template>
   <section class="container">
     <h1>{{title}}</h1>
-    <p>{{message}}</p>
+    <p>{{$store.state.message}}</p>
     <hr>
     <div class="link"
-        @click="$store.commit('count')"
-        @click.ctrl="$store.commit('reset')">
-      <a>
+        @click.exact="$store.commit('count',1)"
+        @click.shift="$store.commit('count',2)"
+        @click.ctrl="$store.commit('count',3)">
+      <a @click.stop="$store.commit('reset')">
         clicked: {{ $store.state.counter }}
       </a>
     </div>

@@ -9,8 +9,9 @@ const createStore = () => {
         };
     },
     mutations: {
-      count: function(state) {
-        state.counter++;
+      // 第一引数は必ずstateが渡される
+      count: function(state, n) {
+        state.counter += n;
       },
       reset: function(state) {
           state.counter = 0;
